@@ -102,7 +102,7 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/Subash-S-66/Subash-S-Portfolio1.git
+git clone https://github.com/Subash-S-Portfolio-NeuralNetwork.git
 cd Subash-S-Portfolio1
 
 # Install dependencies (root monorepo)
