@@ -8,6 +8,10 @@
 
 <br/>
 
+**Live Demo URL:** https://subash-dev-portfolio.zeabur.app/
+
+<br/>
+
 <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=22&duration=3000&pause=1000&color=8B5CF6&center=true&vCenter=true&multiline=true&repeat=true&width=600&height=80&lines=Full-Stack+Developer+%7C+MERN+%2B+AI;Building+immersive+digital+products" alt="Typing SVG" />
 
 </div>
