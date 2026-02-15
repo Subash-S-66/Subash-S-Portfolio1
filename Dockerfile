@@ -2,9 +2,9 @@
 FROM node:18-alpine AS build
 WORKDIR /src
 
-# Copy root package files and install deps
+# Copy root package files and install ALL deps (including devDependencies for vite)
 COPY package.json package-lock.json ./
-RUN npm ci --no-audit --no-fund && npm i @rollup/rollup-linux-x64-musl --no-save
+RUN npm ci --include=dev --no-audit --no-fund && npm i @rollup/rollup-linux-x64-musl --no-save
 
 # Copy frontend source
 COPY frontend ./frontend
