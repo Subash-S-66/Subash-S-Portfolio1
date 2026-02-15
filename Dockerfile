@@ -2,13 +2,12 @@
 FROM node:18-alpine AS build
 WORKDIR /src
 
-# Copy root package files and install root deps (includes vite)
+# Copy root package files and install deps
 COPY package.json package-lock.json ./
-RUN npm ci --no-audit --no-fund
+RUN npm ci --no-audit --no-fund && npm i @rollup/rollup-linux-x64-musl --no-save
 
-# Copy frontend source and install frontend deps
+# Copy frontend source
 COPY frontend ./frontend
-RUN cd frontend && npm ci --no-audit --no-fund
 
 # Allow passing API base during build
 ARG VITE_API_BASE
@@ -22,9 +21,9 @@ RUN cd frontend && node ../node_modules/vite/bin/vite.js build
 FROM node:18-alpine AS runtime
 WORKDIR /app/backend
 
-# Install backend deps
-COPY package.json package-lock.json ./
-RUN npm ci --production --no-audit --no-fund
+# Install backend deps (using root package.json since backend shares dependencies)
+COPY package.json ./
+RUN npm install --production --no-audit --no-fund
 
 # Copy backend code
 COPY backend/ .
