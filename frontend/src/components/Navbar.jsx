@@ -77,7 +77,7 @@ function NavLink({ item, isActive, onClick }) {
       className="relative group py-2 px-1 neon-underline"
     >
       <span className={`text-sm font-mono uppercase tracking-[0.2em] transition-colors duration-300 ${
-        isActive ? 'text-white/70' : 'text-white/40 group-hover:text-white/60'
+        isActive ? 'text-white/85' : 'text-white/55 group-hover:text-white/75'
       }`}>
         {scrambled}
       </span>
@@ -176,7 +176,7 @@ const Navbar = () => {
                 onClick={() => scrollTo('#home')}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="font-display text-base font-semibold text-white/55 hover:text-white/75 transition-colors relative group"
+                className="font-display text-base font-semibold text-white/70 hover:text-white/90 transition-colors relative group"
               >
                 {personalInfo.name.split(' ')[0]}
                 <span className="text-cyan-400/50">.</span>
@@ -206,7 +206,7 @@ const Navbar = () => {
                     rel="noopener noreferrer"
                     whileHover={{ y: -1 }}
                     whileTap={{ scale: 0.97 }}
-                    className="text-sm font-mono uppercase tracking-[0.25em] text-white/45 hover:text-white/65 border border-white/[0.08] hover:border-white/[0.12] px-4 py-1.5 rounded-md transition-all duration-300"
+                    className="text-sm font-mono uppercase tracking-[0.25em] text-white/60 hover:text-white/80 border border-white/[0.08] hover:border-white/[0.12] px-4 py-1.5 rounded-md transition-all duration-300"
                   >
                     Resume
                   </motion.a>
@@ -256,10 +256,10 @@ const Navbar = () => {
                       transition={{ delay: i * 0.08, type: 'spring', stiffness: 200, damping: 18 }}
                       onClick={() => scrollTo(item.href)}
                       className={`block w-full text-left py-2.5 text-sm font-mono uppercase tracking-[0.2em] transition-colors ${
-                        activeSection === item.href.replace('#', '') ? 'text-white/60' : 'text-white/40'
+                        activeSection === item.href.replace('#', '') ? 'text-white/75' : 'text-white/55'
                       }`}
                     >
-                      <span className="text-white/25 mr-3">0{i + 1}</span>
+                      <span className="text-white/40 mr-3">0{i + 1}</span>
                       {item.label}
                     </motion.button>
                   ))}
@@ -272,7 +272,7 @@ const Navbar = () => {
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ delay: 0.3 }}
-                      className="inline-block mt-4 text-sm font-mono uppercase tracking-[0.25em] text-white/45 border border-white/[0.08] px-4 py-2 rounded-md"
+                      className="inline-block mt-4 text-sm font-mono uppercase tracking-[0.25em] text-white/60 border border-white/[0.08] px-4 py-2 rounded-md"
                     >
                       Resume ↗
                     </motion.a>

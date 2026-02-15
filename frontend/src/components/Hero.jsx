@@ -133,7 +133,7 @@ function HUDElement({ label, value, color, delay }) {
       className="flex items-center gap-2 text-sm font-mono"
     >
       <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: color, boxShadow: `0 0 4px ${color}` }} />
-      <span className="text-white/50 uppercase tracking-[0.15em]">{label}</span>
+      <span className="text-white/65 uppercase tracking-[0.15em]">{label}</span>
       <span style={{ color: `${color}` }}>{value}</span>
     </motion.div>
   )
@@ -438,7 +438,7 @@ const Hero = () => {
             <span className="animate-soft-pulse absolute inline-flex h-full w-full rounded-full bg-[#00ffa3] opacity-75" />
             <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00ffa3]" />
           </span>
-          <span className="text-sm font-mono text-white/60 tracking-[0.2em] uppercase">
+          <span className="text-sm font-mono text-white/75 tracking-[0.2em] uppercase">
             Neural System Initialized
           </span>
         </motion.div>
@@ -486,7 +486,7 @@ const Hero = () => {
           className="flex items-center justify-center gap-2 mb-4"
         >
           <div className="h-[1px] w-8 bg-gradient-to-r from-transparent to-[#00d4ff]/30" />
-          <span className="text-lg md:text-xl font-mono text-[#00d4ff]/80">
+          <span className="text-lg md:text-xl font-mono text-[#00d4ff]/90">
             {typedRole}
             <span className="animate-pulse ml-0.5 text-[#00d4ff]">|</span>
           </span>
@@ -498,7 +498,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.5, duration: 0.8 }}
-          className="text-lg md:text-xl text-white/60 max-w-lg mx-auto mb-10 leading-relaxed"
+          className="text-lg md:text-xl text-white/75 max-w-lg mx-auto mb-10 leading-relaxed"
         >
           {personalInfo.tagline}
         </motion.p>
@@ -526,7 +526,7 @@ const Hero = () => {
 
           <MagneticButton
             onClick={scrollToContact}
-            className="px-8 py-3 rounded-full font-medium text-base text-white/60 border border-white/[0.08] hover:border-white/[0.15] hover:text-white/80 transition-all duration-500 hover:bg-white/[0.02]"
+            className="px-8 py-3 rounded-full font-medium text-base text-white/75 border border-white/[0.08] hover:border-white/[0.15] hover:text-white/90 transition-all duration-500 hover:bg-white/[0.02]"
           >
             Get In Touch
           </MagneticButton>
@@ -549,7 +549,7 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 2.2 + i * 0.1 }}
               whileHover={{ y: -4, scale: 1.15 }}
-              className="p-2.5 rounded-lg border border-white/[0.08] text-white/50 hover:text-[#00d4ff] hover:border-[#00d4ff]/30 hover:shadow-[0_0_20px_rgba(0,212,255,0.15)] transition-all duration-400"
+              className="p-2.5 rounded-lg border border-white/[0.08] text-white/65 hover:text-[#00d4ff] hover:border-[#00d4ff]/30 hover:shadow-[0_0_20px_rgba(0,212,255,0.15)] transition-all duration-400"
             >
               {link.label === 'GitHub' && (
                 <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
@@ -597,7 +597,7 @@ const Hero = () => {
         transition={{ delay: 3, duration: 1 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-[4] flex flex-col items-center gap-2"
       >
-        <span className="text-sm font-mono text-white/50 tracking-[0.3em] uppercase">Scroll</span>
+        <span className="text-sm font-mono text-white/65 tracking-[0.3em] uppercase">Scroll</span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}

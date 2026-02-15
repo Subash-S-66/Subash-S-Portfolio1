@@ -195,7 +195,7 @@ const Footer = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="font-display text-2xl font-semibold text-white/70 mb-3"
+                className="font-display text-2xl font-semibold text-white/85 mb-3"
               >
                 {personalInfo.name.split(' ')[0]}
                 <motion.span
@@ -209,7 +209,7 @@ const Footer = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-sm text-white/50 leading-relaxed max-w-[280px]"
+                className="text-sm text-white/65 leading-relaxed max-w-[280px]"
               >
                 {personalInfo.tagline}
               </motion.p>
@@ -217,7 +217,7 @@ const Footer = () => {
 
             {/* Navigation */}
             <div>
-              <p className="text-sm font-mono uppercase tracking-[0.3em] text-white/60 mb-4">Navigation</p>
+              <p className="text-sm font-mono uppercase tracking-[0.3em] text-white/75 mb-4">Navigation</p>
               <motion.div
                 initial="hidden"
                 whileInView="visible"
@@ -234,7 +234,7 @@ const Footer = () => {
                     }}
                     onClick={() => scrollTo(item.href)}
                     whileHover={{ x: 6, color: 'rgba(255,255,255,0.5)' }}
-                    className="block text-sm text-white/50 hover:text-white/70 transition-colors duration-300 relative group neon-underline"
+                    className="block text-sm text-white/65 hover:text-white/85 transition-colors duration-300 relative group neon-underline"
                   >
                     {item.label}
                     <span className="absolute -bottom-0.5 left-0 h-[1px] bg-gradient-to-r from-cyan-400/20 to-purple-400/20 w-0 group-hover:w-full transition-all duration-400" />
@@ -245,7 +245,7 @@ const Footer = () => {
 
             {/* Social */}
             <div>
-              <p className="text-sm font-mono uppercase tracking-[0.3em] text-white/60 mb-4">Connect</p>
+              <p className="text-sm font-mono uppercase tracking-[0.3em] text-white/75 mb-4">Connect</p>
               <motion.div
                 initial="hidden"
                 whileInView="visible"
@@ -270,8 +270,8 @@ const Footer = () => {
                     {(() => {
                       const Icon = socialIconMap[link.label]
                       return Icon
-                        ? <Icon size={18} className="text-white/60 group-hover:text-cyan-400/70 transition-colors" />
-                        : <span className="text-sm font-mono text-white/60 group-hover:text-cyan-400/70 transition-colors">{link.label.slice(0, 2).toUpperCase()}</span>
+                        ? <Icon size={18} className="text-white/75 group-hover:text-cyan-400/80 transition-colors" />
+                        : <span className="text-sm font-mono text-white/75 group-hover:text-cyan-400/80 transition-colors">{link.label.slice(0, 2).toUpperCase()}</span>
                     })()}
                   </motion.a>
                 ))}
@@ -287,7 +287,7 @@ const Footer = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="flex flex-col md:flex-row items-center justify-between gap-4 pt-8 border-t border-white/[0.03]"
           >
-            <p className="text-sm font-mono text-white/50">
+            <p className="text-sm font-mono text-white/65">
               © {new Date().getFullYear()} {personalInfo.name}
             </p>
 
@@ -296,7 +296,7 @@ const Footer = () => {
               onClick={scrollToTop}
               whileHover={{ y: -3, color: 'rgba(0,212,255,0.4)' }}
               whileTap={{ scale: 0.92 }}
-              className="flex items-center gap-2 text-sm font-mono text-white/50 hover:text-white/70 transition-colors duration-300 group magnetic-glow"
+              className="flex items-center gap-2 text-sm font-mono text-white/65 hover:text-white/85 transition-colors duration-300 group magnetic-glow"
             >
               <span className="uppercase tracking-[0.2em]">Back to top</span>
               <motion.span

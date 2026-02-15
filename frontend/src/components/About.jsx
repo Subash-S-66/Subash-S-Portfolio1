@@ -168,11 +168,11 @@ function StatCounter({ stat, index }) {
         {/* Value */}
         <div className="font-display text-3xl md:text-4xl font-bold mb-1" style={{ color }}>
           <span className="tabular-nums">{typeof count === 'number' || !isNaN(count) ? count : stat.value}</span>
-          <span className="text-lg text-white/50">{stat.suffix}</span>
+          <span className="text-lg text-white/65">{stat.suffix}</span>
         </div>
 
         {/* Label */}
-        <div className="text-sm font-mono uppercase tracking-[0.3em] text-white/50 mt-1">
+        <div className="text-sm font-mono uppercase tracking-[0.3em] text-white/65 mt-1">
           {stat.label}
         </div>
 
@@ -225,7 +225,7 @@ function TechBadge({ tech, index }) {
         scale: 1.15,
         boxShadow: '0 0 25px rgba(0,212,255,0.2)',
       }}
-      className="px-3 py-1.5 rounded-lg border border-white/[0.06] bg-white/[0.02] text-sm font-mono text-white/50 hover:text-[#00d4ff] hover:border-[#00d4ff]/25 transition-colors duration-300 group shimmer-on-hover"
+      className="px-3 py-1.5 rounded-lg border border-white/[0.06] bg-white/[0.02] text-sm font-mono text-white/65 hover:text-[#00d4ff] hover:border-[#00d4ff]/25 transition-colors duration-300 group shimmer-on-hover"
       style={{ animation: `tech-float ${3 + (index % 3)}s ease-in-out infinite`, animationDelay: `${index * 0.2}s` }}
     >
       <span className="relative">
@@ -428,7 +428,7 @@ const About = () => {
 
                 {/* Paragraph */}
                 <div className="p-4 rounded-xl border border-transparent hover:border-white/[0.03] hover:bg-white/[0.01] transition-all duration-500">
-                  <p className="text-base md:text-lg text-white/55 leading-relaxed group-hover:text-white/70 transition-colors duration-500">
+                  <p className="text-base md:text-lg text-white/70 leading-relaxed group-hover:text-white/85 transition-colors duration-500">
                     {paragraph}
                   </p>
                 </div>
@@ -466,7 +466,7 @@ const About = () => {
         >
           <motion.p
             variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { duration: 0.5 } } }}
-            className="text-sm font-mono uppercase tracking-[0.4em] text-white/50 mb-6"
+            className="text-sm font-mono uppercase tracking-[0.4em] text-white/65 mb-6"
           >
             Technologies I Work With
           </motion.p>

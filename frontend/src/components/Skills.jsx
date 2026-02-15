@@ -125,7 +125,7 @@ function CircularProgress({ skill, groupIndex, index, isVisible }) {
         )}
       </div>
 
-      <span className="text-sm text-white/55 text-center group-hover:text-white/70 transition-colors duration-300 leading-tight max-w-[80px]">
+      <span className="text-sm text-white/70 text-center group-hover:text-white/85 transition-colors duration-300 leading-tight max-w-[80px]">
         {skill.name}
       </span>
     </motion.div>
@@ -189,7 +189,7 @@ function SkillGroupCard({ group, groupIndex }) {
         </div>
         <div>
           <h3 className="font-display text-sm font-semibold text-white group-hover:text-white transition-colors">{group.title}</h3>
-          <span className="text-sm font-mono text-white/45">{group.items.length} skills</span>
+          <span className="text-sm font-mono text-white/60">{group.items.length} skills</span>
         </div>
       </div>
 
@@ -334,7 +334,7 @@ const Skills = () => {
           transition={{ duration: 0.6 }}
           className="text-center"
         >
-          <p className="text-sm font-mono uppercase tracking-[0.4em] text-white/50 mb-6">Development Highlights</p>
+          <p className="text-sm font-mono uppercase tracking-[0.4em] text-white/65 mb-6">Development Highlights</p>
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -356,7 +356,7 @@ const Skills = () => {
                     boxShadow: `0 0 6px ${groupColors[i % groupColors.length]}40`
                   }} />
                 </div>
-                <span className="text-sm text-white/50 group-hover:text-white/65 transition-colors">{h}</span>
+                <span className="text-sm text-white/65 group-hover:text-white/80 transition-colors">{h}</span>
               </motion.div>
             ))}
           </motion.div>

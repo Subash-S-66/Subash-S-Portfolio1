@@ -423,24 +423,24 @@ function ProjectCard({ project, index }) {
                 </>
               )}
             </h3>
-            <p className="text-sm text-white/40 mt-1 font-mono">{project.subtitle}</p>
+            <p className="text-sm text-white/55 mt-1 font-mono">{project.subtitle}</p>
           </div>
 
           {/* Meta line */}
           <div className="flex items-center gap-3 mb-4 mt-3">
-            <span className="text-sm font-mono text-white/50 px-2 py-0.5 rounded bg-white/[0.02] border border-white/[0.03]">{project.role}</span>
-            <span className="text-sm font-mono text-white/45">{project.date}</span>
+            <span className="text-sm font-mono text-white/65 px-2 py-0.5 rounded bg-white/[0.02] border border-white/[0.03]">{project.role}</span>
+            <span className="text-sm font-mono text-white/60">{project.date}</span>
           </div>
 
           {/* Description */}
-          <p className={`text-sm text-white/50 leading-relaxed mb-5 ${isFeatured ? '' : 'line-clamp-3'}`}>
+          <p className={`text-sm text-white/65 leading-relaxed mb-5 ${isFeatured ? '' : 'line-clamp-3'}`}>
             {project.description}
           </p>
 
           {/* Features — Terminal style */}
           <button
             onClick={() => setShowFeatures(!showFeatures)}
-            className="flex items-center gap-2 text-sm font-mono text-white/50 hover:text-white/70 transition-colors mb-4 group/btn"
+            className="flex items-center gap-2 text-sm font-mono text-white/65 hover:text-white/85 transition-colors mb-4 group/btn"
           >
             <span className="text-xs" style={{ color: `${project.color}60` }}>
               {showFeatures ? '▼' : '▸'}
@@ -475,7 +475,7 @@ function ProjectCard({ project, index }) {
                       className="flex items-start gap-2 py-1"
                     >
                       <span className="text-xs mt-0.5 flex-shrink-0" style={{ color: `${project.color}60` }}>→</span>
-                      <span className="text-sm text-white/55">{f}</span>
+                      <span className="text-sm text-white/70">{f}</span>
                     </motion.div>
                   ))}
                 </div>
@@ -507,7 +507,7 @@ function ProjectCard({ project, index }) {
                 style={{
                   borderColor: isHovered ? `${project.color}20` : 'rgba(255,255,255,0.04)',
                   backgroundColor: isHovered ? `${project.color}06` : 'rgba(255,255,255,0.015)',
-                  color: isHovered ? `${project.color}80` : 'rgba(255,255,255,0.25)',
+                  color: isHovered ? `${project.color}80` : 'rgba(255,255,255,0.40)',
                 }}
               >
                 {tech}
@@ -549,7 +549,7 @@ function ProjectCard({ project, index }) {
                 onClick={() => downloadApkFiles(project.apkDownloads)}
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
-                className="flex items-center gap-2 px-3 py-2 rounded-lg border border-white/[0.08] text-sm font-mono text-white/45 hover:text-green-400/80 hover:border-green-400/20 hover:bg-green-400/[0.04] transition-all duration-500"
+                className="flex items-center gap-2 px-3 py-2 rounded-lg border border-white/[0.08] text-sm font-mono text-white/60 hover:text-green-400/80 hover:border-green-400/20 hover:bg-green-400/[0.04] transition-all duration-500"
               >
                 <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
@@ -704,7 +704,7 @@ const Projects = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.6, duration: 0.6 }}
-            className="flex items-center justify-center gap-4 text-sm font-mono text-white/45"
+            className="flex items-center justify-center gap-4 text-sm font-mono text-white/60"
           >
             <span className="flex items-center gap-1.5">
               <span className="w-1 h-1 rounded-full bg-cyan-400/30" />
@@ -738,7 +738,7 @@ const Projects = () => {
           transition={{ delay: 0.8 }}
           className="text-center mt-16"
         >
-          <p className="text-sm font-mono text-white/35 uppercase tracking-[0.3em]">
+          <p className="text-sm font-mono text-white/50 uppercase tracking-[0.3em]">
             End of transmission — {projects.length}/{projects.length} loaded
           </p>
         </motion.div>

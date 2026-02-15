@@ -23,7 +23,7 @@
     --pink: #ff2d55;
     --green: #00ffa3;
     --text: #e4e4e7;
-    --text-muted: rgba(255, 255, 255, 0.4);
+    --text-muted: rgba(255, 255, 255, 0.55);
   }
 
   * {
