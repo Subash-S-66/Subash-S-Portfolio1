@@ -2,7 +2,10 @@
 FROM node:18-alpine AS build
 WORKDIR /src
 
-# Copy root package files and install ALL deps (including devDependencies for vite)
+# Ensure devDependencies (vite, postcss, tailwindcss) are installed
+ENV NODE_ENV=development
+
+# Copy root package files and install ALL deps
 COPY package.json package-lock.json ./
 RUN npm install --no-audit --no-fund && npm i @rollup/rollup-linux-x64-musl --no-save
 
