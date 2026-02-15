@@ -38,17 +38,17 @@ app.use(helmet({
         "'self'",
         "'unsafe-inline'",
         "https://fonts.googleapis.com",
-        process.env.CLIENT_URL || 'https://subash-portfolio.zeabur.app',
-        process.env.ZEABUR_URL || 'https://subash-portfolio.zeabur.app',
-        process.env.GITHUB_PAGES_URL || 'https://subash-s-66.github.io'
+        process.env.CLIENT_URL || 'https://subash-s-portfolio.zeabur.app',
+        process.env.ZEABUR_URL || 'https://subash-s-portfolio.zeabur.app',
+        process.env.GITHUB_PAGES_URL || 'https://subash-s-portfolio.zeabur.app'
       ],
       styleSrcElem: [
         "'self'",
         "'unsafe-inline'",
         "https://fonts.googleapis.com",
-        process.env.CLIENT_URL || 'https://subash-portfolio.zeabur.app',
-        process.env.ZEABUR_URL || 'https://subash-portfolio.zeabur.app',
-        process.env.GITHUB_PAGES_URL || 'https://subash-s-66.github.io'
+        process.env.CLIENT_URL || 'https://subash-s-portfolio.zeabur.app',
+        process.env.ZEABUR_URL || 'https://subash-s-portfolio.zeabur.app',
+        process.env.GITHUB_PAGES_URL || 'https://subash-s-portfolio.zeabur.app'
       ],
       // Allow scripts from self; keep unsafe-inline/eval to support some libs if needed
       scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
@@ -56,8 +56,8 @@ app.use(helmet({
       // Allow API connections from the app origin (Zeabur) and any configured API URL
       connectSrc: [
         "'self'",
-        process.env.API_URL || process.env.CLIENT_URL || process.env.ZEABUR_URL || 'https://subash-portfolio.zeabur.app',
-        process.env.ZEABUR_URL || 'https://subash-portfolio.zeabur.app'
+        process.env.API_URL || process.env.CLIENT_URL || process.env.ZEABUR_URL || 'https://subash-s-portfolio.zeabur.app',
+        process.env.ZEABUR_URL || 'https://subash-s-portfolio.zeabur.app'
       ],
       fontSrc: ["'self'", "https://fonts.gstatic.com"],
       objectSrc: ["'none'"],
@@ -68,9 +68,9 @@ app.use(helmet({
 }))
 app.use(cors({
   origin: [
-    process.env.CLIENT_URL || 'https://subash-s-66.github.io/Subash-Portfolio',
-    'https://subash-s-66.github.io',
-    process.env.ZEABUR_URL || 'https://subash-portfolio.zeabur.app'
+    process.env.CLIENT_URL || 'https://subash-s-portfolio.zeabur.app',
+    'https://subash-s-portfolio.zeabur.app',
+    process.env.ZEABUR_URL || 'https://subash-s-portfolio.zeabur.app'
   ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
@@ -226,42 +226,52 @@ app.post('/api/contact',
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <title>New Contact Form Submission</title>
           <style>
-            body { margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #f8fafc; }
-            .container { max-width: 700px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
-            .header { background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%); padding: 30px; text-align: center; color: white; }
-            .header h2 { margin: 0; font-size: 24px; font-weight: 600; }
-            .header p { margin: 8px 0 0 0; font-size: 14px; opacity: 0.9; }
+            @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+            body { margin: 0; padding: 0; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background-color: #030014; color: #e4e4e7; }
+            .wrapper { background-color: #030014; padding: 30px 15px; }
+            .container { max-width: 700px; margin: 0 auto; background-color: #0a0a1a; border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; overflow: hidden; }
+            .header { background: linear-gradient(135deg, #00d4ff 0%, #a855f7 50%, #ff2d55 100%); padding: 40px 30px; text-align: center; color: white; position: relative; }
+            .header::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 30px; background: linear-gradient(to bottom, transparent, #0a0a1a); }
+            .header-badge { display: inline-block; background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.2); border-radius: 20px; padding: 4px 14px; font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.9); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 14px; }
+            .header h2 { margin: 0; font-family: 'Space Grotesk', 'Inter', sans-serif; font-size: 24px; font-weight: 700; color: #ffffff; letter-spacing: -0.5px; }
+            .header p { margin: 8px 0 0 0; font-size: 14px; color: rgba(255,255,255,0.9); font-weight: 300; }
             .content { padding: 30px; }
-            .contact-info { background-color: #f8fafc; border-left: 4px solid #0ea5e9; padding: 20px; margin: 20px 0; border-radius: 8px; }
-            .contact-info h3 { margin: 0 0 15px 0; color: #1a202c; font-size: 18px; }
-            .contact-info p { margin: 8px 0; color: #4a5568; font-size: 14px; }
-            .contact-info strong { color: #2d3748; }
-            .message-section { background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px; margin: 20px 0; }
-            .message-section h3 { margin: 0 0 15px 0; color: #334155; font-size: 16px; }
-            .message-text { color: #475569; line-height: 1.6; white-space: pre-wrap; word-wrap: break-word; }
-            .timestamp { background-color: #f0f9ff; border: 1px solid #90cdf4; border-radius: 8px; padding: 15px; margin: 20px 0; }
-            .timestamp p { margin: 0; color: #0369a1; font-size: 13px; text-align: center; }
-            .footer { background-color: #2d3748; color: #a0aec0; padding: 20px; text-align: center; font-size: 12px; }
+            .glass-card { background-color: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 22px; margin: 18px 0; }
+            .contact-info { border-left: 3px solid #00d4ff; }
+            .contact-info h3 { margin: 0 0 15px 0; font-family: 'Space Grotesk', 'Inter', sans-serif; color: #00d4ff; font-size: 16px; font-weight: 600; letter-spacing: 0.5px; }
+            .contact-info p { margin: 8px 0; color: rgba(255,255,255,0.8); font-size: 14px; }
+            .contact-info strong { color: #ffffff; font-weight: 500; }
+            .contact-info a { color: #00d4ff; text-decoration: none; }
+            .message-section { border-left: 3px solid #a855f7; }
+            .message-section h3 { margin: 0 0 15px 0; font-family: 'Space Grotesk', 'Inter', sans-serif; color: #a855f7; font-size: 15px; font-weight: 600; letter-spacing: 0.5px; }
+            .message-text { color: rgba(255,255,255,0.8); line-height: 1.7; white-space: pre-wrap; word-wrap: break-word; font-size: 14px; }
+            .timestamp { border-left: 3px solid #00ffa3; }
+            .timestamp p { margin: 0; color: rgba(255,255,255,0.75); font-size: 13px; text-align: center; }
+            .timestamp strong { color: #00ffa3; }
+            .footer { background-color: rgba(255,255,255,0.02); border-top: 1px solid rgba(255,255,255,0.06); padding: 24px 30px; text-align: center; }
+            .footer p { margin: 0; color: rgba(255,255,255,0.45); font-size: 12px; }
           </style>
         </head>
         <body>
+          <div class="wrapper">
           <div class="container">
             <div class="header">
+              <div class="header-badge">&#9889; New Message</div>
               <h2>New Contact Form Submission</h2>
               <p>You have received a new message from your portfolio website</p>
             </div>
             <div class="content">
-              <div class="contact-info">
-                <h3>Contact Information</h3>
+              <div class="glass-card contact-info">
+                <h3>&#9670; Contact Information</h3>
                 <p><strong>Name:</strong> ${name}</p>
-                <p><strong>Email:</strong> <a href="mailto:${email}" style="color: #0ea5e9; text-decoration: none;">${email}</a></p>
+                <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
                 <p><strong>Subject:</strong> ${subject}</p>
               </div>
-              <div class="message-section">
-                <h3>Message</h3>
+              <div class="glass-card message-section">
+                <h3>&#9670; Message</h3>
                 <div class="message-text">${message.replace(/\n/g, '<br>')}</div>
               </div>
-              <div class="timestamp">
+              <div class="glass-card timestamp">
                 <p><strong>Received:</strong> ${new Date().toLocaleString('en-US', {
                   weekday: 'long',
                   year: 'numeric',
@@ -278,12 +288,12 @@ app.post('/api/contact',
               <p>This notification was sent from your portfolio contact form.</p>
             </div>
           </div>
+          </div>
         </body>
         </html>
       `
 
-      // Simple auto-reply HTML for sender confirmation
-      // Auto-reply HTML (professional, branded template)
+      // Auto-reply HTML (dark portfolio-themed template)
       const autoReplyHtml = `
         <!DOCTYPE html>
         <html lang="en">
@@ -292,47 +302,61 @@ app.post('/api/contact',
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <title>Thank you for contacting Subash</title>
           <style>
-            body { margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #f8fafc; }
-            .container { max-width: 600px; margin: 0 auto; background-color: #ffffff; }
-            .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px 30px; text-align: center; color: white; }
-            .header h1 { margin: 0; font-size: 28px; font-weight: 600; }
-            .header p { margin: 10px 0 0 0; font-size: 16px; opacity: 0.9; }
+            @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+            body { margin: 0; padding: 0; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background-color: #030014; color: #e4e4e7; }
+            .wrapper { background-color: #030014; padding: 30px 15px; }
+            .container { max-width: 600px; margin: 0 auto; background-color: #0a0a1a; border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; overflow: hidden; }
+            .header { background: linear-gradient(135deg, #00d4ff 0%, #a855f7 50%, #ff2d55 100%); padding: 50px 30px; text-align: center; position: relative; }
+            .header::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 40px; background: linear-gradient(to bottom, transparent, #0a0a1a); }
+            .header-badge { display: inline-block; background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.2); border-radius: 20px; padding: 4px 14px; font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.9); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 16px; }
+            .header h1 { margin: 0; font-family: 'Space Grotesk', 'Inter', sans-serif; font-size: 28px; font-weight: 700; color: #ffffff; letter-spacing: -0.5px; }
+            .header p { margin: 12px 0 0 0; font-size: 15px; color: rgba(255,255,255,0.9); font-weight: 300; }
             .content { padding: 40px 30px; }
-            .message-summary { background-color: #f8fafc; border-left: 4px solid #667eea; padding: 20px; margin: 20px 0; border-radius: 4px; }
-            .message-summary h3 { margin: 0 0 10px 0; color: #1a202c; font-size: 18px; }
-            .message-summary p { margin: 5px 0; color: #4a5568; }
-            .message-content { background-color: #f7fafc; padding: 20px; border-radius: 8px; margin: 20px 0; border: 1px solid #e2e8f0; }
-            .message-content h4 { margin: 0 0 15px 0; color: #2d3748; font-size: 16px; }
-            .message-text { color: #4a5568; line-height: 1.6; white-space: pre-line; }
-            .response-info { background-color: #ebf8ff; border: 1px solid #90cdf4; border-radius: 8px; padding: 20px; margin: 20px 0; }
-            .response-info h4 { margin: 0 0 10px 0; color: #2b6cb0; font-size: 16px; }
-            .response-info p { margin: 0; color: #2c5282; line-height: 1.5; }
-            .contact-options { background-color: #f0fff4; border: 1px solid #9ae6b4; border-radius: 8px; padding: 20px; margin: 20px 0; }
-            .contact-options h4 { margin: 0 0 15px 0; color: #22543d; font-size: 16px; }
-            .contact-links { margin: 15px 0; }
-            .contact-links a { display: inline-block; margin: 5px 10px 5px 0; padding: 8px 16px; background-color: #667eea; color: white; text-decoration: none; border-radius: 6px; font-size: 14px; }
-            .contact-links a:hover { background-color: #5a67d8; }
-            .footer { background-color: #2d3748; color: #a0aec0; padding: 30px; text-align: center; font-size: 14px; }
-            .footer h5 { margin: 0 0 10px 0; color: #e2e8f0; font-size: 16px; }
-            .footer p { margin: 5px 0; }
-            .social-links { margin: 15px 0; }
-            .social-links a { display: inline-block; margin: 0 8px; color: #a0aec0; text-decoration: none; font-size: 18px; }
-            .social-links a:hover { color: #667eea; }
-            .divider { border-top: 1px solid #e2e8f0; margin: 20px 0; }
+            .glass-card { background-color: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 22px; margin: 18px 0; }
+            .glass-card h3, .glass-card h4 { margin: 0 0 12px 0; font-family: 'Space Grotesk', 'Inter', sans-serif; font-weight: 600; }
+            .message-summary { border-left: 3px solid #00d4ff; }
+            .message-summary h3 { color: #00d4ff; font-size: 16px; letter-spacing: 0.5px; }
+            .message-summary p { margin: 6px 0; color: rgba(255,255,255,0.8); font-size: 14px; }
+            .message-summary strong { color: #ffffff; font-weight: 500; }
+            .message-content { border-left: 3px solid #a855f7; }
+            .message-content h4 { color: #a855f7; font-size: 15px; letter-spacing: 0.5px; }
+            .message-text { color: rgba(255,255,255,0.8); line-height: 1.7; white-space: pre-line; font-size: 14px; }
+            .response-info { border-left: 3px solid #00ffa3; }
+            .response-info h4 { color: #00ffa3; font-size: 15px; }
+            .response-info p { margin: 0; color: rgba(255,255,255,0.75); line-height: 1.6; font-size: 14px; }
+            .connect-section { text-align: center; margin: 28px 0 10px 0; }
+            .connect-section h4 { color: #e4e4e7; font-family: 'Space Grotesk', 'Inter', sans-serif; font-size: 16px; font-weight: 600; margin: 0 0 6px 0; }
+            .connect-section p { color: rgba(255,255,255,0.65); font-size: 13px; margin: 0 0 18px 0; }
+            .connect-links a { display: inline-block; margin: 5px 6px; padding: 10px 22px; border-radius: 8px; font-size: 13px; font-weight: 500; text-decoration: none; letter-spacing: 0.3px; }
+            .btn-cyan { background: rgba(0,212,255,0.12); border: 1px solid rgba(0,212,255,0.3); color: #00d4ff; }
+            .btn-purple { background: rgba(168,85,247,0.12); border: 1px solid rgba(168,85,247,0.3); color: #a855f7; }
+            .btn-green { background: rgba(0,255,163,0.12); border: 1px solid rgba(0,255,163,0.3); color: #00ffa3; }
+            .divider { border: none; border-top: 1px solid rgba(255,255,255,0.06); margin: 28px 0; }
+            .closing-text { color: rgba(255,255,255,0.7); text-align: center; margin: 20px 0 0 0; font-size: 14px; font-weight: 300; }
+            .footer { background-color: rgba(255,255,255,0.02); border-top: 1px solid rgba(255,255,255,0.06); padding: 32px 30px; text-align: center; }
+            .footer-name { margin: 0 0 4px 0; font-family: 'Space Grotesk', 'Inter', sans-serif; font-size: 18px; font-weight: 700; background: linear-gradient(135deg, #00d4ff, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+            .footer-title { margin: 0 0 4px 0; color: rgba(255,255,255,0.7); font-size: 13px; font-weight: 400; }
+            .footer-org { margin: 0; color: rgba(255,255,255,0.55); font-size: 12px; }
+            .footer-links { margin: 18px 0; }
+            .footer-links a { display: inline-block; margin: 0 10px; color: #00d4ff; text-decoration: none; font-size: 13px; font-weight: 500; }
+            .footer-links .sep { color: rgba(255,255,255,0.3); }
+            .footer-note { font-size: 11px; margin-top: 18px; color: rgba(255,255,255,0.45); }
           </style>
         </head>
         <body>
+          <div class="wrapper">
           <div class="container">
             <!-- Header -->
             <div class="header">
+              <div class="header-badge">&#9889; Transmission Received</div>
               <h1>Thank You for Reaching Out!</h1>
-              <p>I've received your message and appreciate you taking the time to connect.</p>
+              <p>Your message has been received. I appreciate you taking the time to connect.</p>
             </div>
 
             <!-- Content -->
             <div class="content">
-              <div class="message-summary">
-                <h3>Message Summary</h3>
+              <div class="glass-card message-summary">
+                <h3>&#9670; Message Summary</h3>
                 <p><strong>Subject:</strong> ${subject}</p>
                 <p><strong>Received:</strong> ${new Date().toLocaleString('en-US', { 
                   weekday: 'long', 
@@ -344,47 +368,46 @@ app.post('/api/contact',
                 })}</p>
               </div>
 
-              <div class="message-content">
-                <h4>Your Message</h4>
+              <div class="glass-card message-content">
+                <h4>&#9670; Your Message</h4>
                 <div class="message-text">${message.replace(/\n/g, '<br>')}</div>
               </div>
 
-              <div class="response-info">
-                <h4>Response Time</h4>
+              <div class="glass-card response-info">
+                <h4>&#9670; Response Time</h4>
                 <p>I typically respond to all messages within 24-48 hours. For urgent inquiries, feel free to follow up on this email.</p>
               </div>
 
-              <div class="contact-options">
+              <hr class="divider">
+
+              <div class="connect-section">
                 <h4>Alternative Ways to Connect</h4>
-                <p>While you wait for my response, you can also reach me through:</p>
-                <div class="contact-links">
-                  <a href="https://www.linkedin.com/in/subash-s-514aa9373" target="_blank">LinkedIn</a>
-                  <a href="https://github.com/Subash-S-66" target="_blank">GitHub</a>
-                  <a href="mailto:${process.env.EMAIL_TO || process.env.NOTIFICATION_EMAIL || 'subash.93450@gmail.com'}">Direct Email</a>
+                <p>While you wait, you can also reach me through:</p>
+                <div class="connect-links">
+                  <a href="https://www.linkedin.com/in/subash-s-514aa9373" target="_blank" class="btn-cyan">LinkedIn</a>
+                  <a href="https://github.com/Subash-S-66" target="_blank" class="btn-purple">GitHub</a>
+                  <a href="mailto:${process.env.EMAIL_TO || process.env.NOTIFICATION_EMAIL || 'subash.93450@gmail.com'}" class="btn-green">Email</a>
                 </div>
               </div>
 
-              <div class="divider"></div>
-
-              <p style="color: #4a5568; text-align: center; margin: 20px 0;">
-                Looking forward to connecting with you soon!
-              </p>
+              <p class="closing-text">Looking forward to connecting with you soon!</p>
             </div>
 
             <!-- Footer -->
             <div class="footer">
-              <h5>Subash S</h5>
-              <p>Full Stack Developer | B.Tech Computer Science Student</p>
-              <p>Dr. M.G.R. Educational and Research Institute, Chennai</p>
-              <div class="social-links">
-                <a href="https://github.com/Subash-S-66" target="_blank">GitHub</a> |
-                <a href="https://www.linkedin.com/in/subash-s-514aa9373" target="_blank">LinkedIn</a> |
+              <h5 class="footer-name">Subash S</h5>
+              <p class="footer-title">Full Stack Developer &bull; B.Tech Computer Science</p>
+              <p class="footer-org">Dr. M.G.R. Educational and Research Institute, Chennai</p>
+              <div class="footer-links">
+                <a href="https://github.com/Subash-S-66" target="_blank">GitHub</a>
+                <span class="sep">&#8226;</span>
+                <a href="https://www.linkedin.com/in/subash-s-514aa9373" target="_blank">LinkedIn</a>
+                <span class="sep">&#8226;</span>
                 <a href="mailto:${process.env.EMAIL_TO || process.env.NOTIFICATION_EMAIL || 'subash.93450@gmail.com'}">Email</a>
               </div>
-              <p style="font-size: 12px; margin-top: 20px; color: #718096;">
-                This is an automated response. Please do not reply to this email directly.
-              </p>
+              <p class="footer-note">This is an automated response. Please do not reply to this email directly.</p>
             </div>
+          </div>
           </div>
         </body>
         </html>
