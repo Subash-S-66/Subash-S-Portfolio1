@@ -18,6 +18,23 @@ import { personalInfo, navItems } from '../data/personal'
  * ═══════════════════════════════════════════════════════════════ */
 
 const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*'
+const portfolioThemes = [
+  {
+    label: 'Neural Network Theme',
+    url: 'http://subash--portfolio.zeabur.app/',
+    accentClass: 'from-cyan-400/35 via-sky-400/25 to-blue-400/35',
+  },
+  {
+    label: 'Cosmic Universe Theme',
+    url: 'http://subash-dev-portfolio.zeabur.app/',
+    accentClass: 'from-purple-400/35 via-fuchsia-400/25 to-pink-400/35',
+  },
+  {
+    label: 'Game Theme',
+    url: 'http://subash-s-portfolio.zeabur.app/',
+    accentClass: 'from-green-400/35 via-cyan-400/25 to-emerald-400/35',
+  },
+]
 
 function useTextScramble(text, isHovered) {
   const [display, setDisplay] = useState(text)
@@ -106,6 +123,8 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [portfolioMenuOpen, setPortfolioMenuOpen] = useState(false)
+  const portfolioMenuRef = useRef(null)
   const { scrollYProgress } = useScroll()
 
   // Delayed entrance after loader
@@ -139,6 +158,7 @@ const Navbar = () => {
 
   const scrollTo = useCallback((href) => {
     setMobileOpen(false)
+    setPortfolioMenuOpen(false)
     const id = href.replace('#', '')
     const el = document.getElementById(id)
     if (el && window.__portfolioLenis) {
@@ -147,6 +167,31 @@ const Navbar = () => {
       el.scrollIntoView({ behavior: 'smooth' })
     }
   }, [])
+
+  useEffect(() => {
+    if (!portfolioMenuOpen) return
+
+    const onPressOutside = (event) => {
+      if (portfolioMenuRef.current && !portfolioMenuRef.current.contains(event.target)) {
+        setPortfolioMenuOpen(false)
+      }
+    }
+
+    const onEscape = (event) => {
+      if (event.key === 'Escape') {
+        setPortfolioMenuOpen(false)
+      }
+    }
+
+    document.addEventListener('mousedown', onPressOutside)
+    document.addEventListener('touchstart', onPressOutside)
+    window.addEventListener('keydown', onEscape)
+    return () => {
+      document.removeEventListener('mousedown', onPressOutside)
+      document.removeEventListener('touchstart', onPressOutside)
+      window.removeEventListener('keydown', onEscape)
+    }
+  }, [portfolioMenuOpen])
 
   return (
     <AnimatePresence>
@@ -197,6 +242,67 @@ const Navbar = () => {
                     onClick={scrollTo}
                   />
                 ))}
+
+                <div className="relative" ref={portfolioMenuRef}>
+                  <motion.button
+                    onClick={() => setPortfolioMenuOpen((prev) => !prev)}
+                    whileHover={{ y: -1 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="group flex items-center gap-2 text-sm font-mono uppercase tracking-[0.22em] text-white/60 hover:text-white/85 border border-white/[0.08] hover:border-cyan-400/30 px-4 py-1.5 rounded-md transition-all duration-300"
+                    aria-haspopup="menu"
+                    aria-expanded={portfolioMenuOpen}
+                  >
+                    Portfolios
+                    <motion.span
+                      animate={{ rotate: portfolioMenuOpen ? 180 : 0 }}
+                      transition={{ duration: 0.25 }}
+                      className="text-[10px] text-cyan-300/70"
+                    >
+                      ▼
+                    </motion.span>
+                  </motion.button>
+
+                  <AnimatePresence>
+                    {portfolioMenuOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 10, filter: 'blur(6px)' }}
+                        animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                        exit={{ opacity: 0, y: 10, filter: 'blur(6px)' }}
+                        transition={{ duration: 0.28, ease: [0.25, 0.46, 0.45, 0.94] }}
+                        className="absolute right-0 top-[calc(100%+12px)] w-[320px] rounded-xl border border-white/[0.08] bg-void/95 backdrop-blur-2xl p-2 overflow-hidden shadow-[0_24px_80px_rgba(0,0,0,0.45)]"
+                      >
+                        <div className="absolute inset-0 pointer-events-none bg-gradient-to-br from-cyan-500/5 via-purple-500/5 to-transparent" />
+                        <div className="relative space-y-1">
+                          {portfolioThemes.map((theme, i) => (
+                            <motion.a
+                              key={theme.label}
+                              href={theme.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={() => setPortfolioMenuOpen(false)}
+                              initial={{ opacity: 0, x: -10 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ delay: i * 0.05 }}
+                              className="group relative block rounded-lg border border-white/[0.05] hover:border-white/[0.12] bg-white/[0.02] overflow-hidden px-3.5 py-3 transition-all duration-300"
+                            >
+                              <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r ${theme.accentClass}`} />
+                              <div className="relative flex items-center justify-between gap-3">
+                                <div>
+                                  <p className="text-xs font-mono uppercase tracking-[0.16em] text-white/80">
+                                    {theme.label}
+                                  </p>
+                                </div>
+                                <span className="text-[10px] font-mono uppercase tracking-[0.22em] text-white/45 group-hover:text-white/75 transition-colors">
+                                  Open →
+                                </span>
+                              </div>
+                            </motion.a>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
 
                 {/* Resume button */}
                 {personalInfo.resumeUrl && (
@@ -277,6 +383,34 @@ const Navbar = () => {
                       Resume ↗
                     </motion.a>
                   )}
+
+                  <div className="mt-5 pt-4 border-t border-white/[0.05] space-y-2">
+                    <p className="text-[10px] font-mono uppercase tracking-[0.3em] text-cyan-300/45 px-1">
+                      Theme Portfolios
+                    </p>
+                    {portfolioThemes.map((theme, i) => (
+                      <motion.a
+                        key={theme.label}
+                        href={theme.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        initial={{ opacity: 0, x: -30, filter: 'blur(4px)' }}
+                        animate={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
+                        transition={{ delay: 0.35 + i * 0.08, type: 'spring', stiffness: 200, damping: 18 }}
+                        className="group relative block rounded-lg border border-white/[0.05] bg-white/[0.02] overflow-hidden px-3 py-2.5"
+                      >
+                        <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r ${theme.accentClass}`} />
+                        <div className="relative flex items-center justify-between gap-2">
+                          <span className="text-xs font-mono uppercase tracking-[0.16em] text-white/75">
+                            {theme.label}
+                          </span>
+                          <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-white/45 group-hover:text-white/70 transition-colors">
+                            Open →
+                          </span>
+                        </div>
+                      </motion.a>
+                    ))}
+                  </div>
                 </div>
               </motion.div>
             )}
@@ -288,4 +422,3 @@ const Navbar = () => {
 }
 
 export default Navbar
-
