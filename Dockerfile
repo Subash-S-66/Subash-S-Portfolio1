@@ -9,15 +9,12 @@ RUN npm ci --no-audit --no-fund && npm i @rollup/rollup-linux-x64-musl --no-save
 # Copy frontend source
 COPY frontend ./frontend
 
-# Install frontend-specific dependencies
-RUN cd frontend && npm ci --no-audit --no-fund
-
 # Allow passing API base during build
 ARG VITE_API_BASE
 ENV VITE_API_BASE=${VITE_API_BASE}
 
-# Build frontend
-RUN cd frontend && npm run build
+# Build frontend using vite from root node_modules
+RUN cd frontend && node ../node_modules/vite/bin/vite.js build
 
 
 ### --------- BACKEND RUNTIME STAGE ---------
