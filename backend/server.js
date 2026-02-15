@@ -44,6 +44,7 @@ app.use(helmet({
       ],
       styleSrcElem: [
         "'self'",
+        "'unsafe-inline'",
         "https://fonts.googleapis.com",
         process.env.CLIENT_URL || 'https://subash-portfolio.zeabur.app',
         process.env.ZEABUR_URL || 'https://subash-portfolio.zeabur.app',
