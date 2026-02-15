@@ -8,7 +8,7 @@
 
 <br/>
 
-**Live Demo URL:** https://subash-dev-portfolio.zeabur.app/
+**Live Demo URL:** https://subash-s-portfolio.zeabur.app/
 
 <br/>
 
