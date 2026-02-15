@@ -1,45 +1,86 @@
-# Subash S - Portfolio
+# Subash S — Portfolio
 
-## 👋 About
-This is my personal portfolio website showcasing my full-stack development skills and projects.
+A cinematic, sci-fi themed personal portfolio built with React, Three.js, GSAP, and Framer Motion. Features immersive 3D scenes, particle effects, smooth scroll animations, and a fully functional contact form with backend email delivery.
 
-## 🌐 Live Demo
-Visit the live portfolio: [https://subash.zeabur.app](https://subash.zeabur.app)
+## Live Demo
 
-## 👨‍💻 About Me
+**[subash-s-portfolio.zeabur.app](https://subash-s-portfolio.zeabur.app)**
 
-I'm a passionate B.Tech Computer Science student with 1+ years of hands-on experience in full-stack web development. My journey in programming spans across JavaScript, Python, and Java, with a strong focus on creating modern, responsive web applications.
+## About Me
 
-**Key Highlights:**
-- 🎓 **B.Tech Computer Science** student with strong academic foundation
-- 💻 **1+ years** of practical development experience
-- 🚀 **5+ projects** completed showcasing diverse technical skills
-- 🌐 **Full-stack expertise** in MERN stack development
-- 📍 **Based in Chennai, India** - Open to remote opportunities
+B.Tech Computer Science student at Dr. M.G.R. Educational and Research Institute, currently interning at Postulate Info Tech. I build performant full-stack products across fintech, productivity, and AI-powered applications.
 
-## 🛠️ Tech Stack
-- **Frontend**: React, Vite, Tailwind CSS, Framer Motion
-- **Backend**: Node.js, Express.js
-- **Deployment**: GitHub Pages
+- **1+ years** of hands-on development experience
+- **5+ projects** shipped — web and mobile
+- **MERN + AI** focus with end-to-end delivery
+- Based in **Chennai, India**
 
-## 📁 Repository Structure
+## Tech Stack
+
+### Frontend
+React 18 · Vite · Tailwind CSS · Three.js · React Three Fiber · Framer Motion · GSAP · Lenis (smooth scroll) · Lucide React
+
+### Backend
+Node.js · Express.js
+
+### Databases (across projects)
+MongoDB · MySQL · PostgreSQL
+
+### Deployment
+Docker · Render
+
+## Featured Projects
+
+| Project | Description | Stack |
+|---------|-------------|-------|
+| **Bolt & Brook** | E-commerce platform with Razorpay payments | React, Node, Express, MySQL, Razorpay |
+| **Servify** | Real-time freelance bidding platform | MongoDB, Express, React, Node |
+| **Expense Tracker** | SMS-based finance tracker with chart analytics | React, Flask, Python, Recharts |
+| **FairShare** | Debt management with split-bill & reminders | React, TypeScript, Node, MongoDB, JWT |
+| **ISL Translator** | Real-time Indian Sign Language AI translator | React, FastAPI, WebSocket, PyTorch, ONNX |
+
+## Repository Structure
+
 ```
-├── frontend/          # React frontend application
-├── backend/           # Express.js backend server
-├── assets/            # Built assets for GitHub Pages
-└── index.html         # Main HTML file for GitHub Pages
+├── frontend/              # React + Vite frontend
+│   ├── src/
+│   │   ├── components/    # Hero, About, Projects, Skills, Contact, Footer, etc.
+│   │   ├── config/        # API configuration
+│   │   ├── data/          # Personal info, projects, skills data
+│   │   └── hooks/         # Custom React hooks
+│   └── Dockerfile
+├── backend/               # Express.js contact form API
+│   ├── server.js
+│   ├── email-template.html
+│   └── Dockerfile
+├── Android app/           # APK downloads (Expense Tracker, Fair Split)
+└── Dockerfile             # Root Docker config
 ```
 
-## 🔒 Repository Policy
-This is a **view-only** repository. The code is shared for educational and portfolio purposes. Please do not submit pull requests or create issues unless specifically requested.
+## Getting Started
 
-## 📧 Contact
-- **Email**: subash.93450@gmail.com
-- **LinkedIn**: [Subash S](https://www.linkedin.com/in/subash-s-514aa9373)
-- **GitHub**: [@Subash-S-66](https://github.com/Subash-S-66)
+```bash
+# Frontend
+cd frontend
+npm install
+npm run dev
 
-## 📄 License
-This project is for portfolio purposes. All rights reserved.
+# Backend
+cd backend
+npm install
+node server.js
+```
+
+## Contact
+
+- **Email** — subash.93450@gmail.com
+- **LinkedIn** — [Subash S](https://www.linkedin.com/in/subash-s-514aa9373)
+- **GitHub** — [@Subash-S-66](https://github.com/Subash-S-66)
+- **Instagram** — [@1__lucky_](https://www.instagram.com/1__lucky_)
+
+## License
+
+All rights reserved. Code shared for portfolio and educational purposes.
 
 ---
-*Built with ❤️ by Subash S*
+*Built by Subash S*
