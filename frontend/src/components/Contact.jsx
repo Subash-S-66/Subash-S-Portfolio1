@@ -136,14 +136,14 @@ function FormField({ label, type = 'text', name, value, onChange, error, rows })
         rows={rows}
         className={`contact-input w-full bg-transparent border-b ${
           error ? 'border-red-500/40' : focused ? 'border-cyan-400/30' : 'border-white/[0.06]'
-        } px-0 py-3 text-base text-white/80 placeholder-transparent outline-none transition-colors duration-300 resize-none`}
+        } px-0 py-3 text-base text-white placeholder-transparent outline-none transition-colors duration-300 resize-none`}
         placeholder={label}
         autoComplete="off"
       />
       <motion.label
         className={`contact-label absolute left-0 transition-all duration-300 pointer-events-none ${
           focused || hasValue ? '-top-3 text-[10px]' : 'top-3 text-sm'
-        } ${focused ? 'text-cyan-400/70' : 'text-white/45'}`}
+        } ${focused ? 'text-cyan-400' : 'text-white/90'}`}
         animate={focused ? { x: 3 } : { x: 0 }}
         transition={{ type: 'spring', stiffness: 300, damping: 20 }}
       >
@@ -172,7 +172,7 @@ function FormField({ label, type = 'text', name, value, onChange, error, rows })
             initial={{ opacity: 0, y: -5 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
-            className="text-sm text-red-400/70 mt-1 font-mono"
+            className="text-sm text-red-400/85 mt-1 font-mono"
           >
             {error}
           </motion.p>
@@ -198,8 +198,8 @@ function InfoCard({ info, index }) {
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/[0.015] to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
 
       <div className="relative z-10">
-        <p className="text-sm font-mono uppercase tracking-[0.3em] text-white/50 mb-2">{info.label}</p>
-        <p className="text-base text-white/60 group-hover:text-white/75 transition-colors">{info.value}</p>
+        <p className="text-sm font-mono uppercase tracking-[0.3em] text-white/80 mb-2">{info.label}</p>
+        <p className="text-base text-white/90 group-hover:text-white transition-colors">{info.value}</p>
       </div>
 
       {/* Corner accent */}
@@ -389,7 +389,7 @@ const Contact = () => {
                     whileHover={{ scale: 1.03, y: -2, boxShadow: '0 0 30px rgba(0,212,255,0.15)' }}
                     whileTap={{ scale: 0.96 }}
                     className="relative w-full py-3.5 rounded-lg font-mono text-sm uppercase tracking-[0.3em] border overflow-hidden group disabled:opacity-40 transition-all duration-500 magnetic-glow"
-                    style={{ borderColor: 'rgba(0, 212, 255, 0.2)', color: 'rgba(255,255,255,0.6)' }}
+                    style={{ borderColor: 'rgba(0, 212, 255, 0.2)', color: 'rgba(255,255,255,0.9)' }}
                   >
                     {/* Sweep effect */}
                     <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -444,9 +444,9 @@ const Contact = () => {
                         transition={{ duration: 1.5, repeat: Infinity }}
                         className="w-14 h-14 mx-auto mb-4 rounded-full border border-green-400/30 flex items-center justify-center bg-green-400/5"
                       >
-                        <span className="text-green-400/70 text-xl">✓</span>
+                        <span className="text-green-400/90 text-xl">✓</span>
                       </motion.div>
-                      <p className="font-mono text-sm text-white/50 uppercase tracking-[0.3em]">Message Transmitted</p>
+                      <p className="font-mono text-sm text-white/75 uppercase tracking-[0.3em]">Message Transmitted</p>
                       <motion.div
                         initial={{ scaleX: 0 }}
                         animate={{ scaleX: 1 }}
@@ -474,7 +474,7 @@ const Contact = () => {
               transition={{ delay: 0.4, duration: 0.6 }}
               className="pt-6"
             >
-              <p className="text-sm font-mono uppercase tracking-[0.3em] text-white/50 mb-4">Connect</p>
+              <p className="text-sm font-mono uppercase tracking-[0.3em] text-white/80 mb-4">Connect</p>
               <motion.div
                 initial="hidden"
                 whileInView="visible"
@@ -495,7 +495,7 @@ const Contact = () => {
                     whileHover={{ y: -3, scale: 1.05 }}
                     className="w-10 h-10 rounded-lg border border-white/[0.04] bg-white/[0.015] flex items-center justify-center hover:border-white/[0.08] transition-all duration-300 group"
                   >
-                    <span className="text-sm font-mono text-white/50 group-hover:text-white/70 transition-colors">
+                    <span className="text-sm font-mono text-white/80 group-hover:text-white transition-colors">
                       {link.label.slice(0, 2).toUpperCase()}
                     </span>
                   </motion.a>
