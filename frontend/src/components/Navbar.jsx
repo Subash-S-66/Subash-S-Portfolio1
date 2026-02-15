@@ -21,13 +21,18 @@ const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#
 const portfolioThemes = [
   {
     label: 'Neural Network Theme',
-    url: 'http://subash--portfolio.zeabur.app/',
+    url: 'http://subash-dev-portfolio.zeabur.app/',
     accentClass: 'from-cyan-400/35 via-sky-400/25 to-blue-400/35',
   },
   {
     label: 'Cosmic Universe Theme',
-    url: 'http://subash-dev-portfolio.zeabur.app/',
+    url: 'http://subash--portfolio.zeabur.app/',
     accentClass: 'from-purple-400/35 via-fuchsia-400/25 to-pink-400/35',
+  },
+  {
+    label: 'Regular Theme',
+    url: 'https://subash-portfolio.zeabur.app/',
+    accentClass: 'from-slate-300/30 via-zinc-300/20 to-gray-300/30',
   },
   {
     label: 'Game Theme',
